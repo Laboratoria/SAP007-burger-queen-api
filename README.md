@@ -383,6 +383,12 @@ suas habilidades de _debug_!
 * [Postman](https://www.getpostman.com)
 * [Documentação do Postman](https://learning.getpostman.com/docs/postman/launching-postman/introduction/)
 
+#### Material relacionado ao banco de dados
+Sugerimos a leitura e o estudo desses materiais **após** entendimento do boilerplate e das rotas.
+
+* [DB - Entendendo o `index.js` do models](https://youtu.be/uptgTto9jKg)
+* [DB - Criando o DB no heroku e conectando ](https://youtu.be/fHDKLccRncE)
+
 ### Materiais para Hacker Edition
 
 * [JSON web Token](https://jwt.io/)
