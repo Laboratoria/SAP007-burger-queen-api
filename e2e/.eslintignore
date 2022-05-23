@@ -1,2 +1,0 @@
-# Ignore script containig dynamic import (node-fetch)
-globalSetup.js

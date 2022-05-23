@@ -1,32 +1,20 @@
 const express = require('express');
-const config = require('./config');
-const authMiddleware = require('./middleware/auth');
-const errorHandler = require('./middleware/error');
-const routes = require('./routes');
-const pkg = require('./package.json');
+const cors = require('cors');
+const routes = require('./server/routes/index');
 
-const { port, dbUrl, secret } = config;
 const app = express();
+const port = process.env.PORT || 3000;
 
-// TODO: Conexión a la Base de Datos (MongoDB o MySQL)
-
-app.set('config', config);
-app.set('pkg', pkg);
-
-// parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 app.use(express.json());
-app.use(authMiddleware(secret));
+app.use(express.urlencoded({ extended: true }));
 
-// Registrar rutas
-routes(app, (err) => {
-  if (err) {
-    throw err;
-  }
+app.use('/', routes);
 
-  app.use(errorHandler);
+app.get('*', (req, res) => {
+  res.send('Hello World!');
+});
 
-  app.listen(port, () => {
-    console.info(`App listening on port ${port}`);
-  });
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
