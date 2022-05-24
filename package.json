@@ -9,7 +9,9 @@
   "scripts": {
     "pretest": "eslint .",
     "start": "nodemon index.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:unit": "jest --verbose",
+    "test": "npm run test:unit"
   },
   "dependencies": {
     "cors": "^2.8.5",

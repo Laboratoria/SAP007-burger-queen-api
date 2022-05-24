@@ -90,21 +90,21 @@ codes, etc), **JSON**, **conexão com uma base de dados** (`PostgreSQL`), **depl
 
 ### JavaScript
 
-- [ ] **Testes unitários** (Hacker Edition)
+- [ ] **Testes unitários**
 
   <details><summary>Links</summary><p>
 
   * [Introdução ao Jest - Documentação oficial](https://jestjs.io/docs/pt-BR/getting-started)
 </p></details>
 
-- [ ] **Testes assíncronos** (Hacker Edition)
+- [ ] **Testes assíncronos**
 
   <details><summary>Links</summary><p>
 
   * [Testando Código Assíncrono - Documentação oficial](https://jestjs.io/docs/pt-BR/asynchronous)
 </p></details>
 
-- [ ] **Mocking** (Hacker Edition)
+- [ ] **Mocking**
 
   <details><summary>Links</summary><p>
 
@@ -234,6 +234,9 @@ poderá estar integrado com o projeto Burger Queen API client já realizado.
 A lógica do projeto deve estar implementada totalmente em JavaScript (ES6).
 Neste projeto está permitido usar bibliotecas ou frameworks.
 
+Os testes unitários devem cobrir um mínimo de 70% de _statements_, _functions_,
+_lines_ e _branches_. 
+
 ## 5. Critérios de aceitação mínimos do projeto
 
 ### 5.1 API
@@ -289,11 +292,18 @@ sobre os objetivos de aprendizagem do projeto.
 * Middleware de autenticação - verificação do token
 * Middleware de erros
 * Criar a documentação da API
-* Testes unitários para cada função
 * Testes _"end to end"_ ou _e2e_ (de uma ponta a outra)
 * Docker
 
-#### Criptografar senha do usuário
+### Testes end-to-end
+**testes _end-to-end_**, que usaremos para verificar o comportamento desde o
+ponto de vista de HTTP, desde fora do servidor. Estes testes, diferente dos
+testes unitarios, não testam cada parte separadamente, mas testam a
+aplicação completa, do princípio ao fim. Esses testes, por não fazerem uso direto
+do código-fonte da aplicação, podem ser executados diretamente em uma URL
+remota, pois a interface em teste é HTTP.
+
+### Criptografar senha do usuário
 
 É uma boa prática **NÃO** armazenar a senha do seu usuário no seu banco de dados, pois
 colocaria a segurança de seu usuário em risco. Assim, ao invés de armazená-la como
@@ -303,12 +313,12 @@ pode-se usar o [bcryptjs](https://www.npmjs.com/package/bcryptjs).
 Assim, na autenticação (`POST /auth`), se a senha do usuário está certa ou não, poderá ser feita
 comparando essa `hash`.
 
-#### Criar a documentação da API
+### Criar a documentação da API
 
 Sugerimos o uso do [Swagger](https://swagger.io/docs/specification/about/) ou [JSDoc](https://jsdoc.app/about-getting-started.html)
 para escrever a sua própria documentação
 
-#### Docker
+### Docker
 
 Se quiser, também poderá se aventurar no Docker e dar os primeiros passos com containers.
 
@@ -405,9 +415,11 @@ Sugerimos a leitura e o estudo desses materiais **após** entendimento do boiler
 
 ***
 
-## 8 HTTP API Checklist
+## 8 Checklist
 
-### 8.1 `/users`
+### 8.1 HTTP API Checklist
+
+#### 8.1.1 `/users`
 
 * [ ] `GET /users`
 * [ ] `GET /users/:uid`
@@ -415,7 +427,7 @@ Sugerimos a leitura e o estudo desses materiais **após** entendimento do boiler
 * [ ] `PUT /users/:uid`
 * [ ] `DELETE /users/:uid`
 
-### 8.2 `/products`
+#### 8.1.2 `/products`
 
 * [ ] `GET /products`
 * [ ] `GET /products/:productid`
@@ -423,7 +435,7 @@ Sugerimos a leitura e o estudo desses materiais **após** entendimento do boiler
 * [ ] `PUT /products/:productid`
 * [ ] `DELETE /products/:productid`
 
-### 8.3 `/orders`
+#### 8.1.3 `/orders`
 
 * [ ] `GET /orders`
 * [ ] `GET /orders/:orderid`
@@ -431,13 +443,12 @@ Sugerimos a leitura e o estudo desses materiais **após** entendimento do boiler
 * [ ] `PUT /orders/:orderid`
 * [ ] `DELETE /orders/:orderid`
 
-### 8.4 Hacker Edition
+#### 8.2 Hacker Edition
 
 * [ ] Criptografar senha do usuário
 * [ ] `POST /auth`
 * [ ] Middleware de autenticação
 * [ ] Middleware de erros
 * [ ] Documentação da API
-* [ ] Testes unitários
 * [ ] Testes _e2e_
 * [ ] Docker
